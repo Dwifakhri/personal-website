@@ -9,6 +9,17 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.8"
+    "@tailwindcss/postcss": "^4.1.18",
+    "@vercel/analytics": "^1.6.1",
+    "aos": "^2.3.4",
+    "astro": "^5.16.8",
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "prettier": "3.7.4",
+    "prettier-plugin-astro": "0.14.1"
   }
 }

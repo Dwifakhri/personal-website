@@ -1,11 +1,567 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/Navbar.astro";
+import Footer from "@/components/Footer.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import { Image } from "astro:assets";
+import { projects } from "@/data/data.ts";
+import { skills } from "@/data/data.ts";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Profile from "@/assets/images/photo_new.jpg";
+import { email, location, palette, puzzle, tools } from "@/assets/icon";
+
+const featuredProjects = projects.filter((project) => project.isFeatured);
 ---
 
 <Layout>
-	<Welcome />
+    <Navbar />
+    <section
+        id="home"
+        class="section bg-sideground flex flex-col items-center justify-center min-h-screen text-center px-4 mx-auto space-y-6"
+    >
+        <div data-aos="zoom-in" class="flex flex-col space-y-6">
+            <p class="text-base text-white">Hi, I'm Fakhri! 👋</p>
+            <h1 class="font-bold text-4xl md:text-6xl text-white leading-tight">
+                Shaping Digital Experiences<br />
+                Through <span class="primary-gradient">Code and Design</span>
+            </h1>
+            <p class="text-lg text-neutral-secondary-softmax-w-3xl mx-auto">
+                Frontend Engineer with 3+ years of experience creating scalable
+                web interfaces<br />
+                using clean, maintainable code.
+            </p>
+        </div>
+        <div class="flex gap-6 mt-12">
+            <a href="#about" data-aos="fade-up" data-aos-delay="300" class="hi">
+                <button
+                    class="gradient-border-btn px-5 py-2 text-xs rounded-md text-primary cursor-pointer"
+                >
+                    <span> Get in Touch </span>
+                </button>
+            </a>
+            <a
+                data-aos="fade-up"
+                data-aos-delay="500"
+                href="https://docs.google.com/document/d/1HlArPZAp2vw6_IKbBNWyo4yIFO8aneKk/edit?usp=sharing&ouid=113420268688163869452&rtpof=true&sd=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-2 text-xs text-white hover:text-primary transition hover:underline hover:scale-105"
+                >My Resume
+                <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M1.90802 0C1.73382 0 1.56675 0.0692001 1.44358 0.192377C1.3204 0.315554 1.2512 0.482618 1.2512 0.656817C1.2512 0.831015 1.3204 0.998079 1.44358 1.12126C1.56675 1.24443 1.73382 1.31363 1.90802 1.31363H7.75807L0.20905 8.86265C0.144519 8.92278 0.0927596 8.99529 0.0568606 9.07586C0.0209617 9.15643 0.00165825 9.2434 0.000102218 9.3316C-0.00145381 9.41979 0.0147695 9.50739 0.0478039 9.58917C0.0808383 9.67096 0.130007 9.74525 0.192377 9.80762C0.254748 9.86999 0.329041 9.91916 0.410827 9.9522C0.492612 9.98523 0.580213 10.0015 0.668404 9.9999C0.756595 9.99834 0.843569 9.97904 0.924138 9.94314C1.00471 9.90724 1.07722 9.85548 1.13735 9.79095L8.68637 2.24193V8.09198C8.68637 8.26618 8.75557 8.43325 8.87874 8.55642C9.00192 8.6796 9.16898 8.7488 9.34318 8.7488C9.51738 8.7488 9.68444 8.6796 9.80762 8.55642C9.9308 8.43325 10 8.26618 10 8.09198V0.656817C9.99844 0.569628 9.98062 0.483496 9.94745 0.402848C9.89979 0.290876 9.82233 0.194116 9.72352 0.12309C9.6247 0.0520642 9.5083 0.00949123 9.38697 0H1.90802Z"
+                        fill="currentColor"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="section mx-auto max-w-6xl px-4 py-24 md:px-10">
+        <h2
+            data-aos="fade-up"
+            class="text-3xl md:text-5xl font-bold mb-16 text-center overflow-hidden"
+        >
+            <span class="primary-gradient">About Me</span>
+        </h2>
+        <div
+            class="flex flex-col md:flex-row md:space-x-12 items-center md:items-start mb-20"
+        >
+            <div
+                data-aos="fade-right"
+                class="flex flex-col items-center w-full md:w-1/2 mb-10 md:mb-0"
+            >
+                <div
+                    class="w-36 h-36 rounded-full overflow-hidden bg-secondary-soft mb-6"
+                >
+                    <Image
+                        src={Profile}
+                        alt="Profile"
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                    />
+                </div>
+                <hr class="w-1/2 border-1/2 border-fillground mb-4" />
+                <div class="flex flex-col gap-3 text-sm">
+                    <div class="flex items-center gap-2">
+                        <Image
+                            src={location}
+                            alt="location"
+                            width="20"
+                            height="20"
+                        />
+                        <span>South Jakarta, Indonesia</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <Image src={email} alt="email" width="20" height="20" />
+                        <span>fakhri.chusaini01@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div
+                data-aos="fade-left"
+                class="w-full md:w-1/3 flex flex-col items-center md:items-start space-y-5"
+            >
+                <h3 class="text-lg font-medium text-white">
+                    Dwi Fakhri Chusaini
+                </h3>
+                <p class="text-base max-w-xl">
+                    I'm a career-switch frontend engineer focused on building
+                    modern, high-quality web applications.<br />
+                    I specialize in TypeScript and Next.js, translating Figma designs
+                    into polished, accessible user interfaces.
+                </p>
+                <p class="text-base max-w-xl">
+                    To broaden my impact, I'm actively learning backend
+                    development and scalable system design.
+                </p>
+            </div>
+        </div>
+
+        <h4
+            data-aos="fade-up"
+            class="text-xl text-center font-medium text-white mb-6"
+        >
+            <span class="text-primary"> What I Do</span>
+        </h4>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div
+                data-aos="fade-up"
+                class="border border-quatenary hover:border-primary transition duration-200 rounded-xl p-6 bg-neutral-primary flex flex-col items-start space-y-4"
+            >
+                <div
+                    class="flex items-center justify-center bg-tertiary rounded-sm p-3"
+                >
+                    <Image src={puzzle} alt="puzzle" width="24" height="24" />
+                </div>
+                <h4 class="text-lg font-medium">Frontend Development</h4>
+                <ul class="text-sm list-disc list-outside pl-5 space-y-1">
+                    <li>
+                        Building responsive and high-performance web
+                        applications
+                    </li>
+                    <li>Creating reusable, scalable component architectures</li>
+                    <li>Integrating APIs and managing application state</li>
+                </ul>
+            </div>
+            <div
+                data-aos="fade-up"
+                data-aos-delay="200"
+                class="border border-quatenary hover:border-primary transition duration-200 rounded-xl p-6 flex flex-col items-start space-y-4"
+            >
+                <div
+                    class="flex items-center justify-center bg-tertiary rounded-sm p-3"
+                >
+                    <Image src={palette} alt="palette" width="24" height="24" />
+                </div>
+                <h4 class="text-lg font-medium">UI / UX & Design</h4>
+                <ul class="text-sm list-disc list-outside pl-5 space-y-1">
+                    <li>Designing intuitive and user-centered interfaces</li>
+                    <li>Translating Figma designs into pixel-perfect UI</li>
+                    <li>
+                        Ensuring accessibility and consistent design systems
+                    </li>
+                </ul>
+            </div>
+            <div
+                data-aos="fade-up"
+                data-aos-delay="400"
+                class="border border-quatenary hover:border-primary transition duration-200 rounded-xl p-6 bg-neutral-primary flex flex-col items-start space-y-4"
+            >
+                <div
+                    class="flex items-center justify-center bg-tertiary rounded-sm p-3"
+                >
+                    <Image src={tools} alt="tools" width="24" height="24" />
+                </div>
+                <h4 class="text-lg font-medium">Performance & Quality</h4>
+                <ul class="text-sm list-disc list-outside pl-5 space-y-1">
+                    <li>Optimizing web performance and Core Web Vitals</li>
+                    <li>Writing clean, maintainable, and scalable code</li>
+                    <li>Testing, debugging, and continuous improvement</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="skill" class="section mx-auto max-w-6xl px-4 py-24 md:px-10">
+        <div
+            data-aos="fade-up"
+            class="mb-12 flex flex-col justify-center items-center"
+        >
+            <div>
+                <span class="block text-lg font-medium primary-gradient"
+                    >My Technical</span
+                >
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    <span class="primary-gradient"> Skills</span>
+                </h2>
+            </div>
+            <p class="max-w-2xl text-center">
+                A diverse set of technical skills focused on modern frontend
+                development, UI/UX design, and performance optimization.
+            </p>
+        </div>
+
+        <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            class="p-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 justify-items-center justify-center mt-8 max-w-3xl mx-auto overflow-hidden"
+        >
+            {
+                skills.map((skill) => (
+                    <div class="relative flex flex-col items-center group">
+                        <div
+                            class="bg-sideground border border-quatenary rounded-lg flex items-center justify-center transition-transform duration-200 group-hover:scale-105 md:group-hover:scale-110 cursor-pointer"
+                            style="width: 72px; height: 72px;"
+                        >
+                            <Image
+                                src={skill.icon}
+                                alt={skill.name}
+                                width="40"
+                                height="40"
+                                loading="lazy"
+                            />
+                        </div>
+                        <span class="absolute bottom-[-2.5rem] left-1/2 -translate-x-1/2 px-3 py-1 bg-quatenary text-xs text-white rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200 z-10 whitespace-nowrap">
+                            {skill.name}
+                        </span>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section
+        id="experience"
+        class="section mx-auto max-w-6xl px-4 py-24 md:px-10"
+    >
+        <div
+            data-aos="fade-up"
+            class="mb-12 flex flex-col md:flex-row justify-between items-center"
+        >
+            <div>
+                <span class="block text-lg font-medium primary-gradient"
+                    >Work History</span
+                >
+                <h2
+                    class="text-3xl md:text-5xl font-bold mb-4 primary-gradient"
+                >
+                    Experience
+                </h2>
+            </div>
+            <p class="max-w-2xl text-center md:text-right">
+                My work experience focuses on building reliable, user-focused
+                applications in collaborative, real-world environments.
+            </p>
+        </div>
+        <div
+            data-aos="fade-up"
+            class="relative border-l-2 border-quatenary pl-8 mb-12"
+        >
+            <div class="mb-12 relative">
+                <span
+                    class="absolute -left-9 top-0 w-2 h-2 bg-primary rounded-full"
+                ></span>
+                <span class="text-sm">Jul 2025 - Present</span>
+                <h3 class="text-xl font-medium text-white mt-2 mb-1">
+                    Frontend Engineer
+                </h3>
+                <span class="block text-primary mb-2"
+                    >PT Mitra Talenta Group (Celerates)</span
+                >
+                <ul class="list-disc list-inside space-y-1 text-sm">
+                    <li>
+                        Assigned to PT Radiant Utama Interinsco Tbk (Oil & Gas
+                        Industry) as a frontend engineer.
+                    </li>
+                    <li>
+                        Developed responsive and high-performance web
+                        applications using React, Redux, and React Hooks.
+                    </li>
+                    <li>
+                        Collaborated closely with backend engineers, UI/UX
+                        designers, and product managers to deliver scalable
+                        solutions.
+                    </li>
+                    <li>
+                        Actively participated in biweekly sprint planning and
+                        agile ceremonies to align on priorities and
+                        deliverables.
+                    </li>
+                </ul>
+            </div>
+            <div class="mb-12 relative">
+                <span
+                    class="absolute -left-9 top-0 w-2 h-2 bg-primary rounded-full"
+                ></span>
+                <span class="text-sm">Feb 2023 - Jun 2025</span>
+                <h3 class="text-xl font-medium text-white mt-2 mb-1">
+                    Frontend Developer
+                </h3>
+                <span class="block text-primary mb-2"
+                    >PT Atmatech Global Informatika</span
+                >
+                <ul
+                    class="list-disc list-inside text-primary-soft text-sm space-y-1"
+                >
+                    <li>
+                        Maintained and enhanced existing projects based on
+                        evolving business requirements.
+                    </li>
+                    <li>
+                        Developed web applications using clean, maintainable,
+                        and efficient code.
+                    </li>
+                    <li>
+                        Participated in development meetings to clarify tasks
+                        and discuss technical challenges.
+                    </li>
+                    <li>
+                        Collaborated closely with Backend, QA, and UI/UX teams
+                        throughout the development lifecycle.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div
+            data-aos="fade-up"
+            class="flex flex-col md:flex-row justify-evenly items-center gap-8 mt-24"
+        >
+            <div class="flex flex-col">
+                <span class="text-2xl font-semibold text-primary">3+</span>
+                <span class="">Years of Experience</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-2xl font-semibold text-primary">10+</span>
+                <span class="">Completed Projects</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-2xl font-semibold text-primary">8+</span>
+                <span class="">Production deployments</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="project" class="section mx-auto max-w-6xl px-4 py-24 md:px-10">
+        <div
+            data-aos="fade-up"
+            class="mb-12 flex flex-col md:flex-row justify-between items-center"
+        >
+            <div>
+                <span class="block text-lg font-medium primary-gradient"
+                    >My Featured</span
+                >
+                <h2
+                    class="text-3xl md:text-5xl font-bold mb-4 primary-gradient"
+                >
+                    Projects
+                </h2>
+            </div>
+            <p class="max-w-2xl text-center md:text-right">
+                A modern frontend project showcasing scalable UI architecture,
+                reusable components, and performance-driven development.
+            </p>
+        </div>
+        <a
+            data-aos="fade-up"
+            href="/projects"
+            class="ml-auto flex items-center w-fit justify-end gap-3 text-white mb-3 hover:text-primary py-2"
+            >All Projects
+            <svg
+                width="14"
+                height="14"
+                viewBox="0 0 43 38"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M2.6665 18.6667H39.9998M39.9998 18.6667L23.9998 34.6667M39.9998 18.6667L23.9998 2.66675"
+                    stroke="currentColor"
+                    stroke-width="5.33333"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+            </svg>
+        </a>
+        <div data-aos="fade-up" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {
+                featuredProjects.map((project) => (
+                    <ProjectCard
+                        img={project.img}
+                        title={project.title}
+                        description={project.description}
+                        techs={project.techs}
+                        codeUrl={project.codeUrl}
+                        liveUrl={project.liveUrl}
+                    />
+                ))
+            }
+        </div>
+    </section>
+
+    <section id="contact" class="section mx-auto max-w-6xl px-4 py-24 md:px-10">
+        <div data-aos="fade-up" class="text-center mb-12">
+            <span class="block text-lg primary-gradient">Get in Touch</span>
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                <span class="primary-gradient"> Contact Me</span>
+            </h2>
+            <p class="text-xl">
+                Let’s collaborate and turn your idea into a great product.
+            </p>
+        </div>
+        <div
+            data-aos="fade-up"
+            class="max-w-6xl mx-auto border-gradient-contact bg-none px-8 py-6 mb-12"
+        >
+            <h3 class="text-lg font-medium text-white mb-4">
+                I’m available for
+            </h3>
+            <ul class="space-y-2 text-sm">
+                <li class="flex items-center gap-2">
+                    <svg
+                        class="w-6 h-6 text-green-400"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        ><path d="M5 13l4 4L19 7"></path></svg
+                    >
+                    Frontend engineering roles where I can build scalable, user-focused
+                    interfaces
+                </li>
+                <li class="flex items-center gap-2">
+                    <svg
+                        class="w-6 h-6 text-green-400"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        ><path d="M5 13l4 4L19 7"></path></svg
+                    >
+                    Freelance or contract opportunities focused on modern web development
+                </li>
+                <li class="flex items-center gap-2">
+                    <svg
+                        class="w-6 h-6 text-green-400"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        ><path d="M5 13l4 4L19 7"></path></svg
+                    >
+                    Collaboration with designers, product managers, and backend engineers
+                </li>
+            </ul>
+        </div>
+        <div data-aos="fade-up" class="max-w-6xl mx-auto">
+            <h4 class="text-lg font-medium text-white mb-4">Connect wit me</h4>
+            <div class="flex gap-5">
+                <a
+                    href="https://www.linkedin.com/in/dwi-fakhri-chusaini-5a114518a/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex gap-2 justify-center items-center text-white hover:text-primary transition duration-200"
+                >
+                    <svg
+                        width="23"
+                        height="23"
+                        viewBox="0 0 23 23"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M20.5853 0.345093H2.4971C1.63117 0.345093 0.957748 1.02515 0.957748 1.99667V20.5527C0.957748 21.3299 1.63117 22.2042 2.4971 22.2042H20.5853C21.4512 22.2042 22.1247 21.5242 22.1247 20.5527V1.89952C22.2209 1.02515 21.5475 0.345093 20.5853 0.345093ZM7.2114 18.8039H4.03645V8.4087H7.2114V18.8039ZM5.67205 7.04856C4.70987 7.04856 3.84395 6.27134 3.84395 5.20267C3.84395 4.23118 4.61362 3.3568 5.67205 3.3568C6.63423 3.3568 7.50016 4.13402 7.50016 5.20267C7.50016 6.27134 6.73048 7.04856 5.67205 7.04856ZM19.046 18.8039H15.8707V13.7521C15.8707 12.5862 15.8707 10.9346 14.2351 10.9346C12.5995 10.9346 12.311 12.2948 12.311 13.6549V18.7068H9.23201V8.4087H12.2148V9.86597H12.311C12.792 9.08876 13.7541 8.21439 15.2935 8.21439C18.4684 8.21439 19.046 10.3517 19.046 13.1691V18.8039Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </a>
+                <a
+                    href="https://github.com/Dwifakhri"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex gap-2 justify-center items-center text-white hover:text-primary transition duration-200"
+                >
+                    <svg
+                        width="27"
+                        height="27"
+                        viewBox="0 0 27 27"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M15.6164 18.6771C18.247 18.3665 21.045 17.41 21.045 12.8662C21.045 11.5748 20.5902 10.5223 19.8495 9.70908C19.969 9.39848 20.3512 8.22651 19.7053 6.60055C19.7053 6.60055 18.7488 6.28952 16.5012 7.79599C15.5447 7.53321 14.4926 7.36551 13.5121 7.36551C12.5074 7.36551 11.4549 7.53321 10.5222 7.79599C8.25035 6.28952 7.29385 6.60055 7.29385 6.60055C6.64833 8.22651 7.03107 9.39848 7.15052 9.70908C6.40902 10.5222 5.95466 11.5748 5.95466 12.8662C5.95466 17.41 8.75259 18.3665 11.3832 18.6771C11.0487 18.9647 10.7377 19.5142 10.6182 20.2796C9.94839 20.5664 8.20257 21.1166 7.15052 19.2991C7.15052 19.2991 6.52852 18.1754 5.35692 18.1037C5.35692 18.1037 4.18495 18.0798 5.26131 18.8205C5.26131 18.8205 6.05021 19.1797 6.57666 20.5424C6.57666 20.5424 7.29385 22.8147 10.5939 22.097V24.1296C10.5939 24.441 10.355 24.7994 9.75728 24.7038C5.06983 23.1492 1.69805 18.701 1.69805 13.4879C1.69805 6.95899 6.98288 1.67421 13.5121 1.67421C20.0168 1.67421 25.3258 6.95904 25.302 13.4879C25.302 18.701 21.9298 23.1253 17.2427 24.7038C16.6445 24.8233 16.4056 24.465 16.4056 24.1296V20.8538C16.4057 19.7531 16.0464 19.0363 15.6164 18.6771ZM27 13.5121C27 6.05021 20.9494 0 13.5121 0C6.05021 0 0 6.05021 0 13.5121C0 20.9494 6.05021 27 13.5121 27C20.9494 27 27 20.9494 27 13.5121Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </a>
+                <a
+                    href="https://medium.com/@fakhri.chusaini01"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex gap-2 justify-center items-center text-white hover:text-primary transition duration-200"
+                >
+                    <svg
+                        width="32"
+                        height="18"
+                        viewBox="0 0 32 18"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M17.8772 9C17.8772 13.9708 13.8757 18 8.93793 18C4.00147 18 0 13.9708 0 9C0 4.0292 4.00147 0 8.93925 0C13.8757 0 17.8772 4.0292 17.8772 9Z"
+                            fill="currentColoer"></path>
+                        <path
+                            d="M27.6841 8.99995C27.6841 13.6789 25.6833 17.4717 23.2151 17.4717C20.7469 17.4717 18.7461 13.6789 18.7461 8.99995C18.7461 4.32101 20.7469 0.528198 23.2151 0.528198C25.682 0.528198 27.6841 4.32101 27.6841 8.99995Z"
+                            fill="currentColoer"></path>
+                        <path
+                            d="M31.6948 8.99996C31.6948 13.1916 30.9909 16.5909 30.1233 16.5909C29.2556 16.5909 28.5517 13.1929 28.5517 8.99996C28.5517 4.807 29.2556 1.40906 30.1233 1.40906C30.9909 1.40906 31.6948 4.80832 31.6948 8.99996Z"
+                            fill="currentColoer"></path>
+                    </svg>
+                </a>
+                <a
+                    href="https://www.instagram.com/dwifakhri01/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex gap-2 justify-center items-center text-white hover:text-primary transition duration-200"
+                >
+                    <svg
+                        width="23"
+                        height="22"
+                        viewBox="0 0 23 22"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <g clip-path="url(#clip0_54_37)">
+                            <path
+                                d="M11.1127 1.99734C14.0309 1.99734 14.377 2.00827 15.5291 2.0611C16.7205 2.11575 17.9473 2.38717 18.8153 3.25516C19.6915 4.13134 19.9547 5.34635 20.0094 6.54132C20.0622 7.69348 20.0731 8.03958 20.0731 10.9578C20.0731 13.876 20.0622 14.2221 20.0094 15.3742C19.9556 16.5592 19.6778 17.7979 18.8153 18.6604C17.9391 19.5366 16.725 19.7998 15.5291 19.8545C14.377 19.9073 14.0309 19.9182 11.1127 19.9182C8.19448 19.9182 7.84837 19.9073 6.69622 19.8545C5.52037 19.8007 4.2653 19.5165 3.41006 18.6604C2.53842 17.7888 2.27065 16.5619 2.216 15.3742C2.16317 14.2221 2.15224 13.876 2.15224 10.9578C2.15224 8.03958 2.16317 7.69348 2.216 6.54132C2.26974 5.36092 2.55026 4.11495 3.41006 3.25516C4.28442 2.38079 5.50398 2.11575 6.69622 2.0611C7.84837 2.00827 8.19448 1.99734 11.1127 1.99734ZM11.1127 0.0281982C8.14438 0.0281982 7.77187 0.0409494 6.60605 0.0937757C4.91652 0.171194 3.23883 0.641165 2.01745 1.86255C0.791511 3.08848 0.326093 4.76253 0.248675 6.45115C0.195849 7.61697 0.183098 7.98948 0.183098 10.9578C0.183098 13.9261 0.195849 14.2986 0.248675 15.4644C0.326093 17.1521 0.797887 18.8344 2.01745 20.053C3.24247 21.278 4.91925 21.7444 6.60605 21.8218C7.77187 21.8746 8.14438 21.8874 11.1127 21.8874C14.081 21.8874 14.4535 21.8746 15.6193 21.8218C17.3079 21.7444 18.9874 21.2735 20.2079 20.053C21.4348 18.8262 21.8993 17.153 21.9767 15.4644C22.0295 14.2986 22.0423 13.9261 22.0423 10.9578C22.0423 7.98948 22.0295 7.61697 21.9767 6.45115C21.8993 4.76162 21.4284 3.08302 20.2079 1.86255C18.9847 0.639344 17.3034 0.170283 15.6193 0.0937757C14.4535 0.0409494 14.081 0.0281982 11.1127 0.0281982Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M11.1127 5.34546C8.01323 5.34546 5.50034 7.85835 5.50034 10.9578C5.50034 14.0572 8.01323 16.5701 11.1127 16.5701C14.2121 16.5701 16.725 14.0572 16.725 10.9578C16.725 7.85835 14.2121 5.34546 11.1127 5.34546ZM11.1127 14.601C9.10072 14.601 7.46948 12.9698 7.46948 10.9578C7.46948 8.94584 9.10072 7.3146 11.1127 7.3146C13.1246 7.3146 14.7559 8.94584 14.7559 10.9578C14.7559 12.9698 13.1246 14.601 11.1127 14.601Z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M16.9472 6.43474C17.6716 6.43474 18.2588 5.84754 18.2588 5.12319C18.2588 4.39885 17.6716 3.81165 16.9472 3.81165C16.2229 3.81165 15.6357 4.39885 15.6357 5.12319C15.6357 5.84754 16.2229 6.43474 16.9472 6.43474Z"
+                                fill="currentColor"></path>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_54_37">
+                                <rect
+                                    width="21.8592"
+                                    height="21.8592"
+                                    fill="currentColor"
+                                    transform="translate(0.183098 0.0281982)"
+                                ></rect>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    <Footer />
 </Layout>

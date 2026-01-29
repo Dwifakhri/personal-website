@@ -1,0 +1,321 @@
+---
+interface Props {
+    isIndexRoute?: Boolean;
+}
+
+const { isIndexRoute = true } = Astro.props;
+---
+
+<nav
+    class="bg-background max-w-[1000px] fixed z-20 top-2 left-2 right-2 my-2 border border-quatenary mx-auto md:mx-16 md:mx-auto rounded-lg"
+>
+    <div
+        class="max-w-[1000px] w-full flex flex-wrap items-center justify-between px-4 py-2 md:px-8 md:py-3 mx-auto"
+    >
+        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <h3 class="primary-gradient font-bold text-base md:text-lg">
+                dwifakhri
+            </h3>
+        </a>
+        <div class="flex sapce-x-2 items-center md:order-2">
+            <div class="col-span-12 hidden md:flex space-x-3 justify-center">
+                <a
+                    href="https://www.linkedin.com/in/dwi-fakhri-chusaini-5a114518a/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex gap-2 justify-center items-center hover:text-primary text-white"
+                >
+                    <svg
+                        width="23"
+                        height="23"
+                        viewBox="0 0 23 23"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M20.5853 0.345093H2.4971C1.63117 0.345093 0.957748 1.02515 0.957748 1.99667V20.5527C0.957748 21.3299 1.63117 22.2042 2.4971 22.2042H20.5853C21.4512 22.2042 22.1247 21.5242 22.1247 20.5527V1.89952C22.2209 1.02515 21.5475 0.345093 20.5853 0.345093ZM7.2114 18.8039H4.03645V8.4087H7.2114V18.8039ZM5.67205 7.04856C4.70987 7.04856 3.84395 6.27134 3.84395 5.20267C3.84395 4.23118 4.61362 3.3568 5.67205 3.3568C6.63423 3.3568 7.50016 4.13402 7.50016 5.20267C7.50016 6.27134 6.73048 7.04856 5.67205 7.04856ZM19.046 18.8039H15.8707V13.7521C15.8707 12.5862 15.8707 10.9346 14.2351 10.9346C12.5995 10.9346 12.311 12.2948 12.311 13.6549V18.7068H9.23201V8.4087H12.2148V9.86597H12.311C12.792 9.08876 13.7541 8.21439 15.2935 8.21439C18.4684 8.21439 19.046 10.3517 19.046 13.1691V18.8039Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </a>
+                <a
+                    href="https://github.com/Dwifakhri"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex gap-2 justify-center items-center hover:text-primary text-white"
+                >
+                    <svg
+                        width="27"
+                        height="27"
+                        viewBox="0 0 27 27"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M15.6164 18.6771C18.247 18.3665 21.045 17.41 21.045 12.8662C21.045 11.5748 20.5902 10.5223 19.8495 9.70908C19.969 9.39848 20.3512 8.22651 19.7053 6.60055C19.7053 6.60055 18.7488 6.28952 16.5012 7.79599C15.5447 7.53321 14.4926 7.36551 13.5121 7.36551C12.5074 7.36551 11.4549 7.53321 10.5222 7.79599C8.25035 6.28952 7.29385 6.60055 7.29385 6.60055C6.64833 8.22651 7.03107 9.39848 7.15052 9.70908C6.40902 10.5222 5.95466 11.5748 5.95466 12.8662C5.95466 17.41 8.75259 18.3665 11.3832 18.6771C11.0487 18.9647 10.7377 19.5142 10.6182 20.2796C9.94839 20.5664 8.20257 21.1166 7.15052 19.2991C7.15052 19.2991 6.52852 18.1754 5.35692 18.1037C5.35692 18.1037 4.18495 18.0798 5.26131 18.8205C5.26131 18.8205 6.05021 19.1797 6.57666 20.5424C6.57666 20.5424 7.29385 22.8147 10.5939 22.097V24.1296C10.5939 24.441 10.355 24.7994 9.75728 24.7038C5.06983 23.1492 1.69805 18.701 1.69805 13.4879C1.69805 6.95899 6.98288 1.67421 13.5121 1.67421C20.0168 1.67421 25.3258 6.95904 25.302 13.4879C25.302 18.701 21.9298 23.1253 17.2427 24.7038C16.6445 24.8233 16.4056 24.465 16.4056 24.1296V20.8538C16.4057 19.7531 16.0464 19.0363 15.6164 18.6771ZM27 13.5121C27 6.05021 20.9494 0 13.5121 0C6.05021 0 0 6.05021 0 13.5121C0 20.9494 6.05021 27 13.5121 27C20.9494 27 27 20.9494 27 13.5121Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </a>
+            </div>
+            <button
+                id="menu-toggle"
+                data-collapse-toggle="navbar-toggle"
+                type="button"
+                class="inline-flex items-center p-2 w-10 h-10 text-white justify-center text-sm text-body rounded-base md:hidden hover hover:text-sm focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
+                aria-controls="navbar-toggle"
+                aria-expanded="false"
+            >
+                <span class="sr-only">Open main menu</span>
+                <svg
+                    class="w-6 h-6"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    ><path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        d="M5 7h14M5 12h14M5 17h14"></path></svg
+                >
+            </button>
+        </div>
+        <div
+            class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+            id="navbar-toggle"
+        >
+            <ul
+                class="font-normal text-sm md:text-base flex flex-col md:p-0 mt-4 md:flex-row space-y-4 md:space-y-0 md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary"
+            >
+            { isIndexRoute ?
+                    <li>
+                        <a
+                            href="#home"
+                            class="block py-2 px-3 text-sm rounded hover:text-primary hover:scale-105 transition-colors duration-200"
+                            aria-current="page">Home</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#about"
+                            class="block py-2 px-3 text-sm rounded hover:text-primary hover:scale-105 transition-colors duration-200"
+                            >About</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#skill"
+                            class="block py-2 px-3 text-sm rounded hover:text-primary hover:scale-105 transition-colors duration-200"
+                            >Skill</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#experience"
+                            class="block py-2 px-3 text-sm rounded hover:text-primary hover:scale-105 transition-colors duration-200"
+                            >Experience</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#project"
+                            class="block py-2 px-3 text-sm rounded hover:text-primary hover:scale-105 transition-colors duration-200"
+                            >Project</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#contact"
+                            class="block py-2 px-3 text-sm rounded hover:text-primary hover:scale-105 transition-colors duration-200"
+                            >Contact</a
+                        >
+                    </li>
+                    :
+                    <li>
+                        <a
+                            href="/"
+                            class="block py-2 px-3 text-sm rounded hover:text-primary hover:scale-105 transition-colors duration-200"
+                            >Back to Home</a
+                        >
+                    </li>
+                }
+
+                <li class="flex md:hidden">
+                    <div class="col-span-12 flex space-x-3 px-3 py-2">
+                        <a
+                            href="https://www.linkedin.com/in/dwi-fakhri-chusaini-5a114518a/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex gap-2 justify-center items-center hover:text-primary text-white"
+                        >
+                            <svg
+                                width="23"
+                                height="23"
+                                viewBox="0 0 23 23"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M20.5853 0.345093H2.4971C1.63117 0.345093 0.957748 1.02515 0.957748 1.99667V20.5527C0.957748 21.3299 1.63117 22.2042 2.4971 22.2042H20.5853C21.4512 22.2042 22.1247 21.5242 22.1247 20.5527V1.89952C22.2209 1.02515 21.5475 0.345093 20.5853 0.345093ZM7.2114 18.8039H4.03645V8.4087H7.2114V18.8039ZM5.67205 7.04856C4.70987 7.04856 3.84395 6.27134 3.84395 5.20267C3.84395 4.23118 4.61362 3.3568 5.67205 3.3568C6.63423 3.3568 7.50016 4.13402 7.50016 5.20267C7.50016 6.27134 6.73048 7.04856 5.67205 7.04856ZM19.046 18.8039H15.8707V13.7521C15.8707 12.5862 15.8707 10.9346 14.2351 10.9346C12.5995 10.9346 12.311 12.2948 12.311 13.6549V18.7068H9.23201V8.4087H12.2148V9.86597H12.311C12.792 9.08876 13.7541 8.21439 15.2935 8.21439C18.4684 8.21439 19.046 10.3517 19.046 13.1691V18.8039Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                        <a
+                            href="https://github.com/Dwifakhri"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex gap-2 justify-center items-center hover:text-primary text-white"
+                        >
+                            <svg
+                                width="27"
+                                height="27"
+                                viewBox="0 0 27 27"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M15.6164 18.6771C18.247 18.3665 21.045 17.41 21.045 12.8662C21.045 11.5748 20.5902 10.5223 19.8495 9.70908C19.969 9.39848 20.3512 8.22651 19.7053 6.60055C19.7053 6.60055 18.7488 6.28952 16.5012 7.79599C15.5447 7.53321 14.4926 7.36551 13.5121 7.36551C12.5074 7.36551 11.4549 7.53321 10.5222 7.79599C8.25035 6.28952 7.29385 6.60055 7.29385 6.60055C6.64833 8.22651 7.03107 9.39848 7.15052 9.70908C6.40902 10.5222 5.95466 11.5748 5.95466 12.8662C5.95466 17.41 8.75259 18.3665 11.3832 18.6771C11.0487 18.9647 10.7377 19.5142 10.6182 20.2796C9.94839 20.5664 8.20257 21.1166 7.15052 19.2991C7.15052 19.2991 6.52852 18.1754 5.35692 18.1037C5.35692 18.1037 4.18495 18.0798 5.26131 18.8205C5.26131 18.8205 6.05021 19.1797 6.57666 20.5424C6.57666 20.5424 7.29385 22.8147 10.5939 22.097V24.1296C10.5939 24.441 10.355 24.7994 9.75728 24.7038C5.06983 23.1492 1.69805 18.701 1.69805 13.4879C1.69805 6.95899 6.98288 1.67421 13.5121 1.67421C20.0168 1.67421 25.3258 6.95904 25.302 13.4879C25.302 18.701 21.9298 23.1253 17.2427 24.7038C16.6445 24.8233 16.4056 24.465 16.4056 24.1296V20.8538C16.4057 19.7531 16.0464 19.0363 15.6164 18.6771ZM27 13.5121C27 6.05021 20.9494 0 13.5121 0C6.05021 0 0 6.05021 0 13.5121C0 20.9494 6.05021 27 13.5121 27C20.9494 27 27 20.9494 27 13.5121Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        /* ==============================
+       SCROLL TO TOP BUTTON
+    ============================== */
+        const scrollTopBtn = document.getElementById("scroll-top-btn");
+        const homeSection = document.getElementById("home");
+
+        const toggleScrollTopButton = () => {
+            if (!scrollTopBtn || !homeSection) return;
+
+            const homeRect = homeSection.getBoundingClientRect();
+            const show = homeRect.bottom <= 0;
+
+            scrollTopBtn.classList.toggle("opacity-100", show);
+            scrollTopBtn.classList.toggle("translate-y-0", show);
+            scrollTopBtn.classList.toggle("pointer-events-auto", show);
+
+            scrollTopBtn.classList.toggle("opacity-0", !show);
+            scrollTopBtn.classList.toggle("translate-y-2", !show);
+            scrollTopBtn.classList.toggle("pointer-events-none", !show);
+        };
+
+        scrollTopBtn?.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        /* ==============================
+       NAVBAR SHOW / HIDE
+    ============================== */
+        const navbar = document.querySelector("nav");
+        let lastScrollTop = 0;
+
+        if (navbar) {
+            navbar.style.transition =
+                "opacity 0.3s ease, transform 0.3s cubic-bezier(0.68,-0.55,0.265,1.55)";
+
+            window.addEventListener(
+                "scroll",
+                () => {
+                    const current = window.scrollY;
+
+                    if (current > 80 && current > lastScrollTop) {
+                        navbar.style.opacity = "0";
+                        navbar.style.transform = "translateY(-60px)";
+                        navbar.style.pointerEvents = "none";
+                    } else {
+                        navbar.style.opacity = "1";
+                        navbar.style.transform = "translateY(0)";
+                        navbar.style.pointerEvents = "auto";
+                    }
+
+                    lastScrollTop = current;
+                    toggleScrollTopButton();
+                },
+                { passive: true },
+            );
+        }
+
+        /* ==============================
+       SMOOTH ANCHOR SCROLL
+    ============================== */
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+            link.addEventListener("click", (e) => {
+                const target = document.querySelector(
+                    link.getAttribute("href"),
+                );
+                if (!target) return;
+
+                e.preventDefault();
+                const y = target.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({ top: y, behavior: "smooth" });
+            });
+        });
+
+        /* ==============================
+       ACTIVE NAV LINK
+    ============================== */
+        const navLinks = document.querySelectorAll("nav a[href^='#']");
+        const sections = document.querySelectorAll(".section");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    const id = entry.target.id;
+
+                    navLinks.forEach((link) =>
+                        link.classList.toggle(
+                            "active",
+                            link.getAttribute("href") === `#${id}`,
+                        ),
+                    );
+                });
+            },
+            { rootMargin: "-40% 0px -40% 0px" },
+        );
+
+        sections.forEach((section) => observer.observe(section));
+
+        /* ==============================
+       MOBILE MENU
+    ============================== */
+        const toggleBtn = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("navbar-toggle");
+
+        toggleBtn?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const open = toggleBtn.getAttribute("aria-expanded") === "true";
+            toggleBtn.setAttribute("aria-expanded", String(!open));
+            mobileMenu?.classList.toggle("hidden");
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!mobileMenu || !toggleBtn) return;
+            if (
+                !mobileMenu.contains(e.target) &&
+                !toggleBtn.contains(e.target)
+            ) {
+                mobileMenu.classList.add("hidden");
+                toggleBtn.setAttribute("aria-expanded", "false");
+            }
+        });
+    });
+</script>

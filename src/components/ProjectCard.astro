@@ -1,0 +1,86 @@
+---
+import { Image } from "astro:assets";
+interface Props {
+    img: ImageMetadata;
+    title: string;
+    description: string;
+    techs?: string[];
+    codeUrl: string;
+    liveUrl: string;
+}
+
+const { img, title, description, techs, codeUrl, liveUrl } = Astro.props;
+---
+
+<div
+    class="bg-sideground rounded-lg overflow-hidden flex flex-col transition-all border border-sideground hover:border-gradient hover:scale-img"
+>
+    <Image
+        src={img}
+        alt={title}
+        class="w-full h-56 object-cover object-top project-card-img"
+        loading="lazy"
+    />
+    <div class="p-6 flex flex-col flex-1 space-y-5">
+        <h3 class="text-xl font-semibold text-white">{title}</h3>
+        <p class="flex-1">{description}</p>
+        <div class="flex gap-2 flex-wrap">
+            {
+                techs &&
+                    techs.map((tech) => (
+                        <span class="px-3 py-1 border border-quatenary text-fg-brand rounded-full text-xs">
+                            {tech}
+                        </span>
+                    ))
+            }
+        </div>
+        <div class="flex gap-4 text-[10px] text-primary mt-2">
+            {
+                codeUrl && (
+                    <a
+                        href={codeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center gap-1 hover:underline text-xs"
+                    >
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                        >
+                            <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                        Code
+                    </a>
+                )
+            }
+            {
+                liveUrl && (
+                    <a
+                        href={liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center gap-1 hover:underline text-xs"
+                    >
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                        >
+                            <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                        Live
+                    </a>
+                )
+            }
+        </div>
+    </div>
+</div>
