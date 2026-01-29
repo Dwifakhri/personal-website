@@ -99,7 +99,13 @@ const featuredProjects = projects.filter((project) => project.isFeatured);
                         <span>South Jakarta, Indonesia</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <Image src={email} alt="email" width="20" height="20" />
+                        <Image
+                            src={email}
+                            alt="email"
+                            width="20"
+                            height="20"
+                            loading="lazy"
+                        />
                         <span>fakhri.chusaini01@gmail.com</span>
                     </div>
                 </div>
@@ -112,7 +118,7 @@ const featuredProjects = projects.filter((project) => project.isFeatured);
                     Dwi Fakhri Chusaini
                 </h3>
                 <p class="text-base max-w-xl">
-                    I'm a career-switch frontend engineer focused on building
+                    I'm a passionate frontend engineer focused on building
                     modern, high-quality web applications.<br />
                     I specialize in TypeScript and Next.js, translating Figma designs
                     into polished, accessible user interfaces.
