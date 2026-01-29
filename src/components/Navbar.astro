@@ -20,7 +20,7 @@ const { isIndexRoute = true } = Astro.props;
         <div class="flex sapce-x-2 items-center md:order-2">
             <div class="col-span-12 hidden md:flex space-x-3 justify-center">
                 <a
-                    href="https://www.linkedin.com/in/dwi-fakhri-chusaini-5a114518a/"
+                    href={import.meta.env.PUBLIC_LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="flex gap-2 justify-center items-center hover:text-primary text-white"
@@ -40,7 +40,7 @@ const { isIndexRoute = true } = Astro.props;
                     </svg>
                 </a>
                 <a
-                    href="https://github.com/Dwifakhri"
+                    href={import.meta.env.PUBLIC_GITHUB_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="flex gap-2 justify-center items-center hover:text-primary text-white"
@@ -148,7 +148,7 @@ const { isIndexRoute = true } = Astro.props;
                 <li class="flex md:hidden">
                     <div class="col-span-12 flex space-x-3 px-3 py-2">
                         <a
-                            href="https://www.linkedin.com/in/dwi-fakhri-chusaini-5a114518a/"
+                            href={import.meta.env.PUBLIC_LINKEDIN_URL}
                             target="_blank"
                             rel="noopener noreferrer"
                             class="flex gap-2 justify-center items-center hover:text-primary text-white"
@@ -168,7 +168,7 @@ const { isIndexRoute = true } = Astro.props;
                             </svg>
                         </a>
                         <a
-                            href="https://github.com/Dwifakhri"
+                            href={import.meta.env.PUBLIC_GITHUB_URL}
                             target="_blank"
                             rel="noopener noreferrer"
                             class="flex gap-2 justify-center items-center hover:text-primary text-white"

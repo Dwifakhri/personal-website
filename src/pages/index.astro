@@ -34,7 +34,7 @@ const featuredProjects = projects.filter((project) => project.isFeatured);
         <div class="flex gap-6 mt-12">
             <a href="#about" data-aos="fade-up" data-aos-delay="300" class="hi">
                 <button
-                    class="gradient-border-btn px-5 py-2 text-xs rounded-md text-primary cursor-pointer"
+                    class="gradient-border-btn px-5 py-2.5 text-xs rounded-md text-primary cursor-pointer"
                 >
                     <span> Get in Touch </span>
                 </button>
@@ -42,7 +42,7 @@ const featuredProjects = projects.filter((project) => project.isFeatured);
             <a
                 data-aos="fade-up"
                 data-aos-delay="500"
-                href="https://docs.google.com/document/d/1HlArPZAp2vw6_IKbBNWyo4yIFO8aneKk/edit?usp=sharing&ouid=113420268688163869452&rtpof=true&sd=true"
+                href={import.meta.env.PUBLIC_RESUME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="flex items-center gap-2 text-xs text-white hover:text-primary transition hover:underline hover:scale-105"
@@ -94,6 +94,7 @@ const featuredProjects = projects.filter((project) => project.isFeatured);
                             alt="location"
                             width="20"
                             height="20"
+                            loading="lazy"
                         />
                         <span>South Jakarta, Indonesia</span>
                     </div>
@@ -137,7 +138,13 @@ const featuredProjects = projects.filter((project) => project.isFeatured);
                 <div
                     class="flex items-center justify-center bg-tertiary rounded-sm p-3"
                 >
-                    <Image src={puzzle} alt="puzzle" width="24" height="24" />
+                    <Image
+                        src={puzzle}
+                        alt="puzzle"
+                        width="24"
+                        height="24"
+                        loading="lazy"
+                    />
                 </div>
                 <h4 class="text-lg font-medium">Frontend Development</h4>
                 <ul class="text-sm list-disc list-outside pl-5 space-y-1">
@@ -157,7 +164,13 @@ const featuredProjects = projects.filter((project) => project.isFeatured);
                 <div
                     class="flex items-center justify-center bg-tertiary rounded-sm p-3"
                 >
-                    <Image src={palette} alt="palette" width="24" height="24" />
+                    <Image
+                        src={palette}
+                        alt="palette"
+                        width="24"
+                        height="24"
+                        loading="lazy"
+                    />
                 </div>
                 <h4 class="text-lg font-medium">UI / UX & Design</h4>
                 <ul class="text-sm list-disc list-outside pl-5 space-y-1">
@@ -176,7 +189,13 @@ const featuredProjects = projects.filter((project) => project.isFeatured);
                 <div
                     class="flex items-center justify-center bg-tertiary rounded-sm p-3"
                 >
-                    <Image src={tools} alt="tools" width="24" height="24" />
+                    <Image
+                        src={tools}
+                        alt="tools"
+                        width="24"
+                        height="24"
+                        loading="lazy"
+                    />
                 </div>
                 <h4 class="text-lg font-medium">Performance & Quality</h4>
                 <ul class="text-sm list-disc list-outside pl-5 space-y-1">
@@ -274,7 +293,7 @@ const featuredProjects = projects.filter((project) => project.isFeatured);
                 <span class="block text-primary mb-2"
                     >PT Mitra Talenta Group (Celerates)</span
                 >
-                <ul class="list-disc list-inside space-y-1 text-sm">
+                <ul class="list-disc list-outside pl-5 space-y-1 text-sm">
                     <li>
                         Assigned to PT Radiant Utama Interinsco Tbk (Oil & Gas
                         Industry) as a frontend engineer.
@@ -307,7 +326,7 @@ const featuredProjects = projects.filter((project) => project.isFeatured);
                     >PT Atmatech Global Informatika</span
                 >
                 <ul
-                    class="list-disc list-inside text-primary-soft text-sm space-y-1"
+                    class="list-disc list-outside pl-5 text-primary-soft text-sm space-y-1"
                 >
                     <li>
                         Maintained and enhanced existing projects based on
@@ -461,7 +480,7 @@ const featuredProjects = projects.filter((project) => project.isFeatured);
             <h4 class="text-lg font-medium text-white mb-4">Connect wit me</h4>
             <div class="flex gap-5">
                 <a
-                    href="https://www.linkedin.com/in/dwi-fakhri-chusaini-5a114518a/"
+                    href={import.meta.env.PUBLIC_LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="flex gap-2 justify-center items-center text-white hover:text-primary transition duration-200"
@@ -481,7 +500,7 @@ const featuredProjects = projects.filter((project) => project.isFeatured);
                     </svg>
                 </a>
                 <a
-                    href="https://github.com/Dwifakhri"
+                    href={import.meta.env.PUBLIC_GITHUB_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="flex gap-2 justify-center items-center text-white hover:text-primary transition duration-200"
@@ -501,7 +520,7 @@ const featuredProjects = projects.filter((project) => project.isFeatured);
                     </svg>
                 </a>
                 <a
-                    href="https://medium.com/@fakhri.chusaini01"
+                    href={import.meta.env.PUBLIC_MEDIUM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="flex gap-2 justify-center items-center text-white hover:text-primary transition duration-200"
@@ -525,7 +544,7 @@ const featuredProjects = projects.filter((project) => project.isFeatured);
                     </svg>
                 </a>
                 <a
-                    href="https://www.instagram.com/dwifakhri01/"
+                    href={import.meta.env.PUBLIC_INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="flex gap-2 justify-center items-center text-white hover:text-primary transition duration-200"
