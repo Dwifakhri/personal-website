@@ -35,5 +35,5 @@ Open [http://localhost:4321](http://localhost:4321) to view the application.
 
 ```bash
 npm run build
-npm run start
+npm run preview
 ```
