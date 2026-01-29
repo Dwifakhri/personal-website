@@ -1,7 +1,8 @@
 ---
 import Analytics from "@vercel/analytics/astro";
-import "src/style/index.css";
 import AOSClient from "@/libs/AOSClient.astro";
+import ButtonScrollTop from "@/components/ButtonScrollTop.astro";
+import "src/style/index.css";
 ---
 
 <!doctype html>
@@ -19,6 +20,64 @@ import AOSClient from "@/libs/AOSClient.astro";
 
         <meta name="generator" content={Astro.generator} />
         <title>Dwi Fakhri Chusaini</title>
+        <meta
+            name="description"
+            content="Frontend Engineer portfolio showcasing projects, skills, and experience in JavaScript, Vue, React, Nuxt, and modern web technologies."
+        />
+
+        <!-- SEO -->
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Fakhri" />
+        <link rel="canonical" href="https://yourdomain.com/" />
+        <meta
+            name="keywords"
+            content="
+                frontend developer,
+                frontend engineer,
+                web developer,
+                javascript developer,
+                vue developer,
+                react developer,
+                nuxt developer,
+                next.js developer,
+                astro developer,
+                ui ux developer,
+                portfolio website,
+                modern web development,
+                responsive web design,
+                indonesia frontend developer"
+        />
+
+        <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:title"
+            content="Dwi Fakhri Chusaini – Frontend Engineer Portfolio"
+        />
+        <meta
+            property="og:description"
+            content="Frontend Engineer portfolio with modern web projects and UI/UX work."
+        />
+        <meta property="og:url" content="https://yourdomain.com/" />
+        <meta
+            property="og:image"
+            content="https://yourdomain.com/og-image.png"
+        />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="Dwi Fakhri Chusaini – Frontend Engineer Portfolio"
+        />
+        <meta
+            name="twitter:description"
+            content="Frontend Engineer portfolio with modern web projects and UI/UX work."
+        />
+        <meta
+            name="twitter:image"
+            content="https://yourdomain.com/og-image.png"
+        />
     </head>
 
     <body>
@@ -26,43 +85,10 @@ import AOSClient from "@/libs/AOSClient.astro";
         <slot />
         <Analytics />
         <AOSClient />
+        <ButtonScrollTop />
 
         <!-- SCROLL TO TOP BUTTON -->
-        <button
-            id="scroll-top-btn"
-            aria-label="Back to top"
-            class="fixed bottom-4 right-4 z-30
-        bg-primary border border-quatenary
-        rounded-full p-3
-        text-background flex items-center justify-center
-        opacity-0 translate-y-2 pointer-events-none
-        transition-all duration-300 ease-out cursor-pointer"
-        >
-            <svg
-                width="20"
-                height="20"
-                viewBox="0 0 38 43"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    d="M18.6665 2.66663V40M18.6665 2.66663L34.6665 18.6666M18.6665 2.66663L2.6665 18.6666"
-                    stroke="black"
-                    stroke-width="5.33333"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"></path>
-            </svg>
-        </button>
 
         <!-- SCRIPT -->
-        <!-- <script type="module" client:load>
-            import AOS from "aos";
-            import "aos/dist/aos.css";
-
-            AOS.init({
-                duration: 800,
-                once: true,
-            });
-        </script> -->
     </body>
 </html>
