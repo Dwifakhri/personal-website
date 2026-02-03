@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* dark: variant when data-theme="dark" is on html */
+@custom-variant dark (&:where([data-theme="dark"] *));
+
 /* Base tokens */
 :root {
     --background: #13131a;
@@ -9,8 +12,21 @@
     --quatenary: #434343;
     --sideground: #17171f;
     --white: #ffffff;
-    --black: #000;
+    --black: #000000;
     --primary-gradient: linear-gradient(90deg, #51ffd0 30%, #02c2f2 100%);
+}
+
+/* Light theme overrides */
+:root[data-theme="light"] {
+    --background: #f9fafb;
+    --fillground: #111827;
+    --primary: #02c2f2;
+    --tertiary: #e5e7eb;
+    --quatenary: #d1d5db;
+    --sideground: #ffffff;
+    --white: #111827;
+    --black: #000000;
+    --primary-gradient: linear-gradient(90deg, #02c2f2 30%, #22c55e 100%);
 }
 
 /* Tailwind theme mapping */
@@ -96,6 +112,28 @@ p {
         var(--primary-gradient) border-box;
     border: 1px solid transparent;
     border-radius: 0.375rem; /* rounded-md */
+}
+
+/* Theme toggle: sun when dark (click to go light), moon when light (click to go dark) */
+.theme-icon-sun {
+    display: none;
+}
+.theme-icon-moon {
+    display: flex;
+}
+:root[data-theme="dark"] .theme-icon-sun,
+:root:not([data-theme]) .theme-icon-sun {
+    display: flex;
+}
+:root[data-theme="dark"] .theme-icon-moon,
+:root:not([data-theme]) .theme-icon-moon {
+    display: none;
+}
+:root[data-theme="light"] .theme-icon-sun {
+    display: none;
+}
+:root[data-theme="light"] .theme-icon-moon {
+    display: flex;
 }
 
 nav ul a.active {

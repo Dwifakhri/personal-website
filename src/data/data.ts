@@ -41,7 +41,7 @@ export const projects = [
         title: "Personal Website",
         description:
             "This is my personal website, which I built using Astro, Tailwind CSS, and Figma.",
-        techs: ["Astro", "Tailwind", "Figma", "AOS"],
+        techs: ["Astro", "Tailwind", "Figma", "AOS", "Vercel Analytics"],
         codeUrl: "https://github.com/Dwifakhri/personal-website",
         liveUrl: "",
         isFeatured: true,

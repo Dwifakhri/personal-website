@@ -18,12 +18,29 @@ const { isIndexRoute = true } = Astro.props;
             </h3>
         </a>
         <div class="flex sapce-x-2 items-center md:order-2">
+            <button
+                id="theme-toggle"
+                type="button"
+                class="theme-toggle-btn mr-1 inline-flex items-center justify-center w-9 h-9 rounded-md text-fillground dark:text-white hover:text-primary transition-colors cursor-pointer"
+                aria-label="Toggle color mode"
+            >
+                <span class="theme-icon-sun w-5 h-5 flex shrink-0" aria-hidden="true">
+                    <svg class="w-full h-full" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M60.8 29.4368H57.664C55.8944 29.4368 54.464 30.5856 54.464 32C54.464 33.4112 55.8944 34.5568 57.664 34.5568H60.8C62.5664 34.5568 64 33.4144 64 32C64 30.5888 62.5632 29.4368 60.8 29.4368ZM32 14.4C29.6867 14.3928 27.3949 14.8432 25.2563 15.7251C23.1177 16.607 21.1746 17.9032 19.5389 19.5389C17.9032 21.1746 16.607 23.1177 15.7251 25.2563C14.8432 27.3949 14.3928 29.6867 14.4 32C14.4 41.7632 22.2368 49.6 32 49.6C41.76 49.6 49.6 41.7632 49.6 32C49.6 22.2368 41.7568 14.4 32 14.4ZM32 44.8C24.9248 44.8 19.2 39.0688 19.2 32C19.2 24.9248 24.9248 19.2 32 19.2C35.3948 19.2 38.6505 20.5486 41.051 22.949C43.4514 25.3495 44.8 28.6052 44.8 32C44.8 35.3948 43.4514 38.6505 41.051 41.051C38.6505 43.4514 35.3948 44.8 32 44.8ZM9.6 32C9.6 30.5888 8.1632 29.4368 6.4 29.4368H3.2C1.4304 29.4368 0 30.5856 0 32C0 33.4112 1.4304 34.5568 3.2 34.5568H6.4C8.1632 34.5568 9.6 33.4112 9.6 32ZM32 9.6C33.4112 9.6 34.5568 8.1696 34.5568 6.4V3.2C34.5568 1.4304 33.4112 0 32 0C30.5888 0 29.4368 1.4304 29.4368 3.2V6.4C29.4368 8.1696 30.5856 9.6 32 9.6ZM32 54.4C30.5856 54.4 29.4368 55.8304 29.4368 57.6V60.8C29.4368 62.5696 30.5856 64 32 64C33.4112 64 34.5568 62.5696 34.5568 60.8V57.6C34.5568 55.8304 33.4112 54.4 32 54.4ZM55.568 12.0512C56.8192 10.8 57.0208 8.976 56.0224 7.9776C55.024 6.9792 53.1968 7.184 51.952 8.4352L49.712 10.672C48.4608 11.9232 48.2592 13.7472 49.2576 14.7456C50.256 15.744 52.0832 15.5392 53.3312 14.288L55.568 12.0512ZM10.6688 49.7056L8.4288 51.9488C7.1776 53.2 6.976 55.0176 7.9744 56.016C8.9728 57.0144 10.8 56.816 12.0448 55.5648L14.2848 53.328C15.536 52.0768 15.7376 50.2528 14.7392 49.2512C13.7408 48.2496 11.9136 48.4608 10.6688 49.7056ZM12.048 8.432C10.8 7.1808 8.9728 6.976 7.9744 7.9744C6.976 8.9728 7.1808 10.8 8.4256 12.0512L10.6656 14.288C11.9168 15.5392 13.7376 15.744 14.736 14.7456C15.7344 13.7472 15.5328 11.92 14.2848 10.672L12.048 8.432ZM49.7088 53.3312L51.9488 55.568C53.2 56.8192 55.0208 57.0176 56.0192 56.0256C57.0176 55.0272 56.816 53.2 55.5648 51.952L53.328 49.7152C52.0768 48.464 50.2528 48.2592 49.2512 49.2576C48.2496 50.256 48.4576 52.08 49.7088 53.3312Z" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span class="theme-icon-moon w-5 h-5 flex shrink-0" aria-hidden="true">
+                    <svg class="w-full h-full" viewBox="0 0 46 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.082 0.428711C17.6803 0.226433 18.3233 0.195027 18.9385 0.337891C19.5528 0.480573 20.1149 0.792037 20.5625 1.23633L20.7373 1.41797C21.1288 1.85581 21.4089 2.38307 21.5527 2.95508C21.7168 3.608 21.6957 4.29354 21.4932 4.93555L21.4941 4.93652C20.791 7.22097 20.4763 9.60748 20.5635 11.9961C20.7631 15.7455 21.9277 19.3806 23.9443 22.5479C25.9609 25.7149 28.7615 28.3071 32.0742 30.0742L32.0801 30.0781C35.0603 31.7725 38.4263 32.673 41.8545 32.6934H41.8564C42.5063 32.7024 43.141 32.8893 43.6924 33.2334C44.2438 33.5775 44.6907 34.0657 44.9844 34.6455C45.278 35.2254 45.4073 35.8752 45.3584 36.5234C45.3094 37.1715 45.0844 37.7941 44.707 38.3232L44.7051 38.3262C42.4114 41.4529 39.4118 43.9944 35.9512 45.7441C32.4906 47.4938 28.6659 48.4019 24.7881 48.3955C23.5305 48.3947 22.2747 48.3007 21.0312 48.1133H21.0293V48.1123C15.5817 47.2508 10.5806 44.586 6.82812 40.5439C3.07565 36.5019 0.788928 31.3169 0.333984 25.8203C-0.120952 20.3237 1.28245 14.8335 4.31934 10.2295C7.35606 5.62575 11.8505 2.17522 17.082 0.429688V0.428711ZM18.1758 3.41699C18.1445 3.41706 18.1135 3.42244 18.084 3.43262L18.0811 3.43359C14.8765 4.49702 11.968 6.30259 9.59277 8.70215C7.21761 11.1017 5.44186 14.0281 4.41113 17.2432C3.38051 20.4581 3.12386 23.871 3.66113 27.2041C4.19848 30.5374 5.51502 33.6974 7.50391 36.4258C9.4927 39.154 12.0977 41.3737 15.1064 42.9053C18.1154 44.4369 21.444 45.2367 24.8203 45.2393C28.1965 45.2418 31.5259 44.4479 34.5371 42.9209C37.5484 41.3939 40.1564 39.1765 42.1494 36.4512C42.1852 36.3999 42.2065 36.3398 42.21 36.2773C42.2135 36.2138 42.1989 36.1503 42.168 36.0947L42.1621 36.085L42.1582 36.0742C42.13 36.0113 42.0839 35.9579 42.0264 35.9199C41.9687 35.8819 41.9011 35.8606 41.832 35.8594V35.8584C37.8766 35.8353 33.9933 34.8014 30.5508 32.8535V32.8545C26.7571 30.8237 23.5526 27.8468 21.248 24.2129C18.9435 20.5789 17.6169 16.4108 17.3975 12.1133V12.1094C17.3006 9.36697 17.6645 6.62766 18.4746 4.00586C18.5011 3.91728 18.5041 3.82328 18.4824 3.7334C18.4605 3.643 18.4142 3.56009 18.3496 3.49316L18.3477 3.49023C18.326 3.46708 18.2996 3.44808 18.2705 3.43555C18.2413 3.42305 18.2095 3.41676 18.1777 3.41699H18.1758Z" fill="currentColor" stroke="currentColor" stroke-width="0.5"/>
+                    </svg>
+                </span>
+            </button>
             <div class="col-span-12 hidden md:flex space-x-3 justify-center">
                 <a
                     href={import.meta.env.PUBLIC_LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="flex gap-2 justify-center items-center hover:text-primary text-white"
+                    class="flex gap-2 justify-center items-center hover:text-primary dark:text-white text-fillground transition duration-200"
                 >
                     <svg
                         width="23"
@@ -43,7 +60,7 @@ const { isIndexRoute = true } = Astro.props;
                     href={import.meta.env.PUBLIC_GITHUB_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="flex gap-2 justify-center items-center hover:text-primary text-white"
+                    class="flex gap-2 justify-center items-center hover:text-primary dark:text-white text-fillground transition duration-200"
                 >
                     <svg
                         width="27"
@@ -151,7 +168,7 @@ const { isIndexRoute = true } = Astro.props;
                             href={import.meta.env.PUBLIC_LINKEDIN_URL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="flex gap-2 justify-center items-center hover:text-primary text-white"
+                            class="flex gap-2 justify-center items-center hover:text-primary dark:text-white text-fillground transition duration-200"
                         >
                             <svg
                                 width="23"
@@ -171,7 +188,7 @@ const { isIndexRoute = true } = Astro.props;
                             href={import.meta.env.PUBLIC_GITHUB_URL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="flex gap-2 justify-center items-center hover:text-primary text-white"
+                            class="flex gap-2 justify-center items-center hover:text-primary dark:text-white text-fillground transition duration-200"
                         >
                             <svg
                                 width="27"
@@ -317,5 +334,41 @@ const { isIndexRoute = true } = Astro.props;
                 toggleBtn.setAttribute("aria-expanded", "false");
             }
         });
+
+        /* ==============================
+       THEME TOGGLE
+    ============================== */
+        const themeToggleBtn = document.getElementById("theme-toggle");
+
+        const applyTheme = (theme) => {
+            document.documentElement.dataset.theme = theme;
+            try {
+                localStorage.setItem("theme", theme);
+            } catch (error) {
+                // Ignore storage errors
+            }
+
+            if (themeToggleBtn) {
+                themeToggleBtn.setAttribute(
+                    "aria-label",
+                    theme === "dark"
+                        ? "Switch to light mode"
+                        : "Switch to dark mode",
+                );
+            }
+        };
+
+        if (themeToggleBtn) {
+            const currentTheme =
+                document.documentElement.dataset.theme || "dark";
+            applyTheme(currentTheme);
+
+            themeToggleBtn.addEventListener("click", () => {
+                const activeTheme =
+                    document.documentElement.dataset.theme || "dark";
+                const nextTheme = activeTheme === "dark" ? "light" : "dark";
+                applyTheme(nextTheme);
+            });
+        }
     });
 </script>

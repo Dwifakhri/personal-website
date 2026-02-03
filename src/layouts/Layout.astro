@@ -32,6 +32,7 @@ import "src/style/index.css";
         <meta
             name="keywords"
             content="
+                dwi fakhri chusaini,
                 frontend developer,
                 frontend engineer,
                 web developer,
@@ -78,6 +79,23 @@ import "src/style/index.css";
             name="twitter:image"
             content={`${import.meta.env.PUBLIC_APP_URL}/personal-website.jpg}`}
         />
+
+        <script is:inline>
+            (function () {
+                try {
+                    const stored = localStorage.getItem("theme");
+                    const prefersDark =
+                        window.matchMedia &&
+                        window.matchMedia("(prefers-color-scheme: dark)")
+                            .matches;
+
+                    const theme = stored || (prefersDark ? "dark" : "light");
+                    document.documentElement.dataset.theme = theme;
+                } catch (error) {
+                    // Fail silently if localStorage or matchMedia is not available
+                }
+            })();
+        </script>
     </head>
 
     <body>

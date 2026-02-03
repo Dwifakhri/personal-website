@@ -26,6 +26,8 @@ import tailwind from "../icon/tailwind.svg";
 import vue from "../icon/vue.svg";
 import mui from "../icon/mui.svg";
 import git from "../icon/git.svg";
+import moon from "../icon/moon.svg";
+import sun from "../icon/sun.svg";
 
 export {
     email,
@@ -56,4 +58,6 @@ export {
     vue,
     mui,
     git,
+    moon,
+    sun,
 };
